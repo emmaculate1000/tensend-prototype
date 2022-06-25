@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tensend Chat</title>
+  <meta name="DreamsChat" content="Tensend Chat">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+
+  <!-- Add link rel manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Add iOS meta tags and icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="DreamsChat PWA">
+  <link rel="apple-touch-icon" href="images/icons/icon-152x152.png">
+
+  <!-- Add description here -->
+  <meta name="description" content="Tensend Chat">
+
+  <!-- Add meta theme-color -->
+  <meta name="theme-color" content="#2F3BA2" />
+
+  <!-- Fontawesome CSS -->
+  <link rel="stylesheet" href="scripts/plugins/fontawesome/css/fontawesome.min.css">
+  <link rel="stylesheet" href="scripts/plugins/fontawesome/css/all.min.css">
+
+  <!-- Custom scroll CSS -->
+  <link rel="stylesheet" href="scripts/plugins/mcustomscroll/jquery.mCustomScrollbar.css">
+
+  <!-- Add link Bootstrap -->
+  <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
+
+  <!-- Add link Main  CSS -->
+  <link rel="stylesheet" type="text/css" href="styles/inline.css">
+
+</head>
+
+	<body class="account-page">
+
+		<!-- Main Wrapper -->
+		<div class="main-wrapper">			
+			<!-- Page Content -->
+			<div class="content align-items-center">
+				<div class="container-fluid">
+					
+					<div class="row">
+						<div class="col-md-8 offset-md-2">
+							
+							<!-- Login Tab Content -->
+							<div class="account-content">
+								<div class="row align-items-center justify-content-center">
+									<div class="col-md-12 col-lg-6 login-right">
+										<div class="login-header">
+											<a href="index.html">
+                        <img src="images/logo.jpg" class="header_image img-fluid" alt="">
+			               </a>
+										</div>
+										<form class="login-form">
+                      <div class="form-group">
+                        <label>Username</label>
+                        <input class="form-control username form-control-lg group_formcontrol" name="new-chat-title" type="text" placeholder="Enter your username">
+                      </div>
+                      <div class="form-group">
+                        <label for="new-chat-topic">Password</label>
+                        <input class="form-control form-control-lg group_formcontrol" name="new-chat-topic" id="new-chat-topic" type="text" placeholder="Enter your password">
+                      </div>
+                      <div class="pt-1">
+                      <div class="text-center">
+                        <button class="btn newgroup_create btn-block d-block w-100 login_btn" type="submit">Login</button>
+                        </div>
+                      </div>
+										</form>
+										
+									</div>
+								</div>
+							</div>
+							<!-- /Login Tab Content -->
+						</div>
+					</div>
+				</div>
+			</div>		
+			<!-- /Page Content -->
+		</div>
+		<!-- /Main Wrapper -->
+	  
+<!-- jQuery -->
+  <script src="scripts/jquery-3.4.1.min.js"></script>
+
+  <!-- Bootstrap Core JS -->
+  <script src="scripts/popper.min.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
+
+  <!-- Custom Scroll JS -->
+  <script src="scripts/plugins/mcustomscroll/jquery.mCustomScrollbar.js"></script>
+
+  <script src="scripts/luxon-1.11.4.js"></script>
+  <script src="scripts/app.js"></script>
+
+  <!-- Add the install script here -->
+  <script>
+    // Register service worker.
+    if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('service-worker.js')
+          .then((reg) => {
+            console.log('Service worker registered.', reg);
+          });
+    });
+  }
+  </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.1/socket.io.js"></script>
+<script src="scripts/chat-socket.js"></script>
+<script>
+  $(".login-form").submit(function(e){
+    e.preventDefault();
+    let username=$(".username").val();
+    //create a unique timestamp for user
+    let dateObj=new Date();
+    let timestamp=dateObj.getTime();
+    window.location=window.location.href+"/chat?username="+username+"&k="+timestamp;
+  })
+</script>
+</body>
+
+</html>

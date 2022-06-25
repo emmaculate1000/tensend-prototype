@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tensend Chat</title>
+  <meta name="TensendChat" content="Tensend Chat">
+  <link rel="icon" href="images/logo.jpg" type="image/x-icon" />
+
+  <!-- Add link rel manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Add iOS meta tags and icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Tensend Chat">
+  <link rel="apple-touch-icon" href="images/logo.jpg">
+
+  <!-- Add description here -->
+  <meta name="description" content="Tensend Chat">
+
+  
+
+  <!-- Fontawesome CSS -->
+  <link rel="stylesheet" href="scripts/plugins/fontawesome/css/fontawesome.min.css">
+  <link rel="stylesheet" href="scripts/plugins/fontawesome/css/all.min.css">
+
+  <!-- Custom scroll CSS -->
+  <link rel="stylesheet" href="scripts/plugins/mcustomscroll/jquery.mCustomScrollbar.css">
+
+  <!-- Add link Bootstrap -->
+  <link rel="stylesheet" type="text/css" href="styles/bootstrap.min.css">
+
+  <!-- Add link Main  CSS -->
+  <link rel="stylesheet" type="text/css" href="styles/inline.css">
+
+</head>
+<body>
+
+ <!-- Main Wrapper -->
+    <div class="main-wrapper">
+  
+        <!-- content -->
+        <div class="content main_content">
+    
+            <!-- sidebar group -->
+            <div class="sidebar-group left-sidebar chat_sidebar">
+                <!-- Chats sidebar -->
+                <div id="chats" class="left-sidebar-wrap sidebar active">
+                    <div class="header">
+                        <div class="header-top">
+                            <div class="logo ml-2 mt-3">
+                                <a href="index.html">
+                                    <img src="images/logo.jpg" class="header_image img-fluid" alt="">
+
+                                </a>
+                            </div>
+                            <ul class="header-action mt-4">
+                                <li>
+                                    <a href="#" data-toggle="dropdown">
+                                        <i class="fas fa-ellipsis-h ellipse_header"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right header_drop_icon">
+                                        <a href="login.html" class="dropdown-item">Logout</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul class="nav nav-tabs chat-tabs mt-4">
+                            <li class="nav-item">
+                                <a class="nav-link  active" href="index.html">Chat</a>
+                            </li>
+                        </ul>
+                        <button type="button" class="header_button"
+                            data-toggle="modal" data-target="#chat-new">
+                            <i class="fas fa-plus button_plus"></i>
+                        </button>
+                    </div>
+                    <div class="search_chat has-search">
+                        <span class="fas fa-search form-control-feedback"></span>
+                        <input class="form-control chat_input" id="search-contact" type="text" placeholder="">
+                    </div>
+                    <div class="sidebar-body" id="chatsidebar">
+                        <ul class="user-list">
+                            <!------------Active users will display here--------->
+                        </ul>
+                    </div>
+                </div>
+                <!-- / Chats sidebar -->
+            </div>
+            <!-- /Sidebar group -->
+
+            <!-- Chat -->
+            <div class="chat" id="middle">
+                <div class="chat-header">
+                    <div class="user-details">
+                        <div class="d-lg-none ml-2">
+                            <ul class="list-inline mt-2 mr-2">
+                                <li class="list-inline-item">
+                                    <a class="text-muted px-0 left_side" href="#" data-chat="open">
+                                        <i class="fas fa-arrow-left"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <figure class="avatar ml-1">
+                            <img src="images/avatar-2.jpg" class="rounded-circle chatting-user-img" alt="image">
+                        </figure>
+                        <div class="mt-1">
+                            <h5 class="mb-1 chatting-user-name"></h5>
+                            <small class="text-muted mb-2">
+                                Online
+                            </small>
+                        </div>
+                    </div>
+                    <div class="chat-options">
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <a class="btn btn-outline-light" href="#" data-toggle="dropdown">
+                                    <i class="fas fa-ellipsis-h"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="#" class="dropdown-item dream_profile_menu">Profile</a>
+                                    <a href="#" class="dropdown-item">Delete</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="chat-body">
+                    <div class="messages" id="chatsContainer">
+                        <!-------All chat messages will display here-------->
+                    </div>
+                </div>
+                <div class="chat-footer">
+                    <form id="chatForm">
+                        <input type="text" id="message-data" class="form-control chat_form" placeholder="Write a message.">
+                        <div class="form-buttons">
+                            <button class="btn" type="button">
+                                <i class="far fa-smile"></i>
+                            </button>
+                            <button class="btn" type="button" data-toggle="modal" data-target="#drag_files">
+                                <i class="fas fa-paperclip"></i>
+                            </button>
+                            <button class="btn send-btn" type="submit">
+                                <i class="fab fa-telegram-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div> 
+            </div>
+            <!-- /Chat -->
+
+            <!-- Upload Documents -->
+            <div id="drag_files" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-md modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Drag and drop files upload</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="js-upload-form">
+                                <div class="upload-drop-zone" id="drop-zone">
+                                    <i class="fa fa-cloud-upload fa-2x"></i> <span class="upload-text">Just drag and
+                                        drop files here</span>
+                                </div>
+                            </form>
+                            <div class="text-center mt-0">
+                                <button class="btn newgroup_create m-0" data-dismiss="modal">Add to upload</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Upload Documents -->
+
+            <!-- Right sidebar -->
+            <div class="right-sidebar right_sidebar_profile" id="middle1">
+                <div class="right-sidebar-wrap active">
+                    <div class="contact-close_call mr-4 mt-4 text-right">
+                        <a href="#"
+                            class="btn btn-outline-light close_profile close_profile4">
+                            <i class="fas fa-times close_icon"></i>
+                        </a>
+                    </div>
+                    <div class="sidebar-body">
+                        <div class="pl-4 pr-4 mt-0 right_sidebar_logo">
+                            <div class="text-center mb-3">
+                                <figure class="avatar avatar-xl mb-3">
+                                    <img src="" class="rounded-circle chatting-user-img" alt="image">
+                                </figure>
+                                <h5 class="profile-name chatting-user-name"></h5>
+                            </div>
+                            <div>
+
+                                <div class="accordion-col">
+                                    <div class="accordion-title">
+                                        <h6 class="primary-title">Media (31) <i class="fas fa-chevron-right float-right"></i></h6>
+                                    </div>
+                                    <div class="accordion-content">
+                                        <div class="media-lists">
+                                            <div class="media-image">
+                                                <img src="images/media1.jpg" alt="">
+                                            </div>
+                                            <div class="media-image">
+                                                <img src="images/media2.jpg" alt="">
+                                            </div>
+                                            <div class="media-image">
+                                                <img src="images/media3.jpg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-title">
+                                        <h6 class="primary-title">About and phone number <i class="fas fa-chevron-right float-right"></i></h6>
+                                    </div>
+                                    <div class="accordion-content">
+                                        <p class="text-muted text-center mt-1">Help people to build websites and apps + grow
+                                            awareness in social media 🔥</p>
+                                        <div class="mt-2 text-center">
+                                            <h6>Phone: <span class="text-muted ml-2">+237652772976</span></h6>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-title">
+                                        <h6 class="primary-title">Settings <i class="fas fa-chevron-right float-right"></i></h6>
+                                    </div>
+                                    <div class="accordion-content">
+                                        <ul class="contact-action">
+                                            <li class="report-contact">
+                                                <a href="#"><i class="fas fa-thumbs-down mr-2"></i> Report User</a>
+                                            </li>
+                                            <li class="delete-chat">
+                                                <a href="#"><i class="fas fa-trash-alt mr-2"></i> Delete Chat</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Right sidebar -->
+
+        </div> 
+        <!-- /Content -->
+    
+    </div>
+    <!-- /Main Wrapper -->
+
+  <!-- jQuery -->
+  <script src="scripts/jquery-3.4.1.min.js"></script>
+
+  <!-- Bootstrap Core JS -->
+  <script src="scripts/popper.min.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
+
+  <!-- Custom Scroll JS -->
+  <script src="scripts/plugins/mcustomscroll/jquery.mCustomScrollbar.js"></script>
+
+  <script src="scripts/luxon-1.11.4.js"></script>
+  <script src="scripts/app.js"></script>
+
+  <!-- Add the install script here -->
+  <script src="scripts/install.js"></script>
+  
+  <script>
+    // Register service worker.
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+          // Registration was successful
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+          // registration failed :(
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.5/qs.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.1/socket.io.js"></script>
+  <script src="scripts/generateUsers.js"></script>
+  <script src="scripts/createChats.js"></script>
+ 
+
+</body>
+</html>
