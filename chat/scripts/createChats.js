@@ -1,4 +1,4 @@
-const socket=io("http://ec2-18-189-44-164.us-east-2.compute.amazonaws.com:3000");
+const socket=io("https://ec2-18-189-44-164.us-east-2.compute.amazonaws.com:3000");
 const pics=["images/avatar-1.jpg","images/avatar-2.jpg","images/avatar-3.jpg"];
 const messageContainer=document.querySelector('.messages');
 
