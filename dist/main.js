@@ -4,7 +4,7 @@ const core_1 = require("@nestjs/core");
 const app_module_1 = require("./app.module");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
-    var whitelist = ['http://localhost/Tensend Chat/',];
+    var whitelist = ['https://frontend.d37u65hijiij9l.amplifyapp.com/'];
     app.enableCors({
         origin: function (origin, callback) {
             if (whitelist.indexOf(origin) !== -1) {

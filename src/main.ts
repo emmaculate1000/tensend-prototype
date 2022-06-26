@@ -3,8 +3,11 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  var whitelist = ['https://frontend.d37u65hijiij9l.amplifyapp.com/'];
-  app.enableCors({
+  var whitelist = ['https://frontend.d37u65hijiij9l.amplifyapp.com'];
+  //app.enableCors();
+  await app.listen(3000);
+}
+/*{
     origin: function (origin, callback) {
       if (whitelist.indexOf(origin) !== -1) {
         console.log("allowed cors for:", origin)
@@ -17,7 +20,5 @@ async function bootstrap() {
     allowedHeaders: 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, Observe',
     methods: "GET,PUT,POST,DELETE,UPDATE,OPTIONS",
     credentials: true,
-    });
-  await app.listen(3000);
-}
+    } */
 bootstrap();

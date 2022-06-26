@@ -1,7 +1,11 @@
 import { ConnectedSocket, MessageBody, SubscribeMessage, WebSocketGateway, WebSocketServer } from "@nestjs/websockets";
 import { Socket } from "socket.io";
 import moment from "moment";
-@WebSocketGateway()
+@WebSocketGateway({
+    cors:{
+        origin:"*",
+    }
+})
 export class ChatGateway{
     users=[];
 
