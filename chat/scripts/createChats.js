@@ -1,4 +1,4 @@
-const socket=io("https://test.digitadooh.com");
+const socket=io("https://test.digitadooh.com:3000");
 const pics=["images/avatar-1.jpg","images/avatar-2.jpg","images/avatar-3.jpg"];
 const messageContainer=document.querySelector('.messages');
 
