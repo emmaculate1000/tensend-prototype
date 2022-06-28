@@ -21,7 +21,7 @@ socket.on("join", (users) => {
     $(".user-list").html("");
     const otherUsers = users.filter(user => user.ref !== me.id);
     others = otherUsers;
-    //console.log(users);
+    console.log(users);
     otherUsers.forEach((userX) => {
         let userObj = new Users(userX.id, userX.username, userX.img, "", "Hello, I just came in now", "Active");
         userObj.createUser();
