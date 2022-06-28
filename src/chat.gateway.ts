@@ -1,5 +1,6 @@
 import { ConnectedSocket, MessageBody, SubscribeMessage, WebSocketGateway, WebSocketServer } from "@nestjs/websockets";
 import { Socket } from "socket.io";
+//kill process on port: sudo kill -9 `sudo lsof -t -i:9001`
 import moment from "moment";
 @WebSocketGateway({
     cors:{

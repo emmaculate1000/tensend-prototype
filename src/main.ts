@@ -3,7 +3,7 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  var whitelist = ['https://frontend.d37u65hijiij9l.amplifyapp.com'];
+  var whitelist = ['http://tensend-prototype-frontend.us-east-1.elasticbeanstalk.com'];
   app.enableCors({
     origin: function (origin, callback) {
       if (whitelist.indexOf(origin) !== -1) {
