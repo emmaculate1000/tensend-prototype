@@ -17,6 +17,7 @@ let me = { username: username, id: k, img: pics[Math.floor(Math.random() * 3)] }
 socket.emit("join", me);
 //generate users
 socket.on("join", (users) => {
+    console.log(users);
     //set content of users to zero 
     $(".user-list").html("");
     let otherUsers=[];
