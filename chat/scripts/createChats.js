@@ -1,4 +1,4 @@
-const socket = io("http://test.digitadooh.com");
+const socket = io("ec2-54-211-20-223.compute-1.amazonaws.com:3000");
 const pics = ["images/avatar-1.jpg", "images/avatar-2.jpg", "images/avatar-3.jpg"];
 const messageContainer = document.querySelector('.messages');
 
