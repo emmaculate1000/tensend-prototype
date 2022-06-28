@@ -27,7 +27,7 @@ export class ChatGateway{
         //add user
         this.server.emit("join",this.users);
         //emit a load chat event
-        client.emit("loadChat",this.chats);
+        //client.emit("loadChat",this.chats);
         console.log(this.users);
     }
 
