@@ -19,9 +19,15 @@ socket.emit("join", me);
 socket.on("join", (users) => {
     //set content of users to zero 
     $(".user-list").html("");
-    const otherUsers = users.filter(user => user.ref !== me.id);
+    let otherUsers=[];
+    users.forEach(user=>{
+        if(user.ref !== me.id){
+            console.log(user);
+            otherUsers.push(user);
+        }
+    })
+    //const otherUsers = users.filter(user => user.ref !== me.id);
     others = otherUsers;
-    console.log(users);
     otherUsers.forEach((userX) => {
         let userObj = new Users(userX.id, userX.username, userX.img, "", "Hello, I just came in now", "Active");
         userObj.createUser();
